@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="card card-body">
+            <form action="/add_contact" method="POST">
+                <body>
+                    <h4>Formulario Registro</h4><br>
+                    <input type="text" name = 'fullname' placeholder="Nombre Completo"><br>
+                    <input type="text" name = 'email' placeholder="Correo Eléctronico"><br>
+                    <input type="text" name = 'city' placeholder="Ciudad"><br><br>
+                    <div class="form">
+                        <button type="submit" class=" btn btn-primary btn-block ">
+                            Guardar
+                          
+                    </div>
+                                          
+                    </button>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-7">
+        <table class="table table-striped table borderer bg-white">
+            <thead>
+                <tr>
+                    <td>fullname</td>
+                    <td>email</td>
+                    <td>City</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dato in datos %}
+                <tr>
+                    <td>{{ dato.1 }}</td>
+                    <td>{{ dato.2 }}</td>
+                    <td>{{ dato.3 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
